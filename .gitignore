@@ -1,0 +1,37 @@
+# Archivos del sistema operativo
+.DS_Store
+Thumbs.db
+
+# Archivos de configuración de IDEs y editores
+.vscode/
+.idea/
+*.sublime-workspace
+*.sublime-project
+
+# Node.js (si estás trabajando con Node.js)
+node_modules/
+
+# Archivos generados por el entorno de Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+env/
+venv/
+
+# Archivos generados por compiladores de C/C++
+*.o
+*.out
+*.exe
+
+# Archivos de logs
+*.log
+
+# Archivos de base de datos
+*.db
+*.sqlite
+
+# Archivos de caché
+.cache/
+*.pid
+*.seed

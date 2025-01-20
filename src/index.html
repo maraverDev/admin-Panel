@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="./output.css" rel="stylesheet" />
+  </head>
+  <body>
+    <main class="flex justify-center items-center h-screen">
+      <div
+        id="loginSection"
+        class="max-w-md relative flex flex-col p-4 rounded-md text-black bg-[#e8e8e8] w-1/3 hidden"
+      >
+        <div class="text-2xl font-bold mb-2 text-[#1e0e4b] text-center">
+          <span>Bienvenido de nuevo</span>
+        </div>
+        <div class="text-sm font-normal mb-4 text-center text-[#1e0e4b]">
+          <span>Accede a tu cuenta</span>
+        </div>
+        <form class="flex flex-col gap-3">
+          <div class="block relative">
+            <label
+              for="emailLogin"
+              class="block text-gray-600 cursor-text text-sm leading-[140%] font-normal mb-2"
+              >Email</label
+            >
+            <input
+              type="text"
+              id="emailLogin"
+              class="rounded border border-gray-200 text-sm w-full font-normal leading-[18px] text-black tracking-[0px] appearance-none block h-11 m-0 p-[11px] focus:ring-2 ring-offset-2 ring-gray-900 outline-0"
+            />
+          </div>
+          <div class="block relative">
+            <label
+              for="passwordLogin"
+              class="block text-gray-600 cursor-text text-sm leading-[140%] font-normal mb-2"
+              >Password</label
+            >
+            <input
+              type="password"
+              id="passwordLogin"
+              class="rounded border border-gray-200 text-sm w-full font-normal leading-[18px] text-black tracking-[0px] appearance-none block h-11 m-0 p-[11px] focus:ring-2 ring-offset-2 ring-gray-900 outline-0"
+            />
+          </div>
+          <button
+          id="btnLogin"
+            type="submit"
+            class="bg-[#7747ff] w-max m-auto px-6 py-2 rounded text-white text-sm font-normal"
+          >
+            Entrar
+          </button>
+        </form>
+        <div class="text-sm text-center mt-[1.6rem]">
+          ¿No tienes cuenta aún?
+          <span class="text-sm text-[#7747ff]" id="txtRegister"
+            >Regístrate</span
+          >
+        </div>
+      </div>
+      <!-- Register -->
+      <div
+      id="registerContainer"
+        class="max-w-md relative flex flex-col p-4 rounded-md text-black bg-[#e8e8e8] w-1/3"
+      >
+        <div class="text-2xl font-bold mb-2 text-[#1e0e4b] text-center">
+          <span>Bienvenido, crea tu cuenta</span>
+        </div>
+        <div class="text-sm font-normal mb-4 text-center text-[#1e0e4b]">
+          <span>Introduce los siguientes datos</span>
+        </div>
+        <form class="flex flex-col gap-3">
+          <div class="block relative">
+            <label
+              for="emailRegister"
+              class="block text-gray-600 cursor-text text-sm leading-[140%] font-normal mb-2"
+              >Email</label
+            >
+            <input
+              type="text"
+              id="emailRegister"
+              class="rounded border border-gray-200 text-sm w-full font-normal leading-[18px] text-black tracking-[0px] appearance-none block h-11 m-0 p-[11px] focus:ring-2 ring-offset-2 ring-gray-900 outline-0"
+            />
+          </div>
+          <div class="block relative">
+            <label
+              for="password"
+              class="block text-gray-600 cursor-text text-sm leading-[140%] font-normal mb-2"
+              >Contraseña</label
+            >
+            <input
+              type="password"
+              id="password"
+              class="rounded border border-gray-200 text-sm w-full font-normal leading-[18px] text-black tracking-[0px] appearance-none block h-11 m-0 p-[11px] focus:ring-2 ring-offset-2 ring-gray-900 outline-0"
+            />
+          </div>
+
+          <div class="block relative">
+            <label
+              for="repeatPassword"
+              class="block text-gray-600 cursor-text text-sm leading-[140%] font-normal mb-2"
+              >Confirma tu contraseña</label
+            >
+            <input
+              type="password"
+              id="repeatPassword"
+              class="rounded border border-gray-200 text-sm w-full font-normal leading-[18px] text-black tracking-[0px] appearance-none block h-11 m-0 p-[11px] focus:ring-2 ring-offset-2 ring-gray-900 outline-0"
+            />
+          </div>
+          <button
+            type="btnRegister" eres un reno
+            class="bg-[#7747ff] w-max m-auto px-6 py-2 rounded text-white text-sm font-normal"
+          >
+            Entrar
+          </button>
+        </form>
+        <div class="text-sm text-center mt-[1.6rem]">
+          ¿Ya tienes cuenta?
+          <span class="text-sm text-[#7747ff]" id="txtRegister">Accede</span>
+        </div>
+      </div>
+    </main>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  </body>
+</html>
