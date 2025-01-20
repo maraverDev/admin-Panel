@@ -1,9 +1,27 @@
+const toLogin = $("#toLogin");
+const toRegister = $("#toRegister");
+
 // Register
 const registerDiv = $("#registerSection");
 const emailRegister = $("#emailRegister");
 const passwordRegister = $("#password");
 const repeatPassRegister = $("#repeatPassword");
 const btnRegister = $("#btnRegister");
+
+function goLogin() {
+  //al pulsar el toLogin
+  if (loginDiv.hasClass("hidden")) {
+    loginDiv.removeClass("hidden");
+    registerDiv.addClass("hidden");
+  }
+}
+function goRegister() {
+  //al pulsar el toRegister
+  if (registerDiv.hasClass("hidden")) {
+    registerDiv.removeClass("hidden");
+    loginDiv.addClass("hidden");
+  }
+}
 
 function validateInputs() {
   const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -49,6 +67,7 @@ function registerUser() {
     localStorage.setItem("users", JSON.stringify(users));
 
     console.log("✅ Registro exitoso");
+    window.location.href = "admin.html";
   }
 }
 // Login
@@ -57,21 +76,26 @@ const emailLogin = $("#emailLogin");
 const passwordLogin = $("#passwordLogin");
 const btnLogin = $("#btnLogin");
 
-function loginUser () {
+function loginUser() {
   let email = emailLogin.val().trim();
-  let password = emailLogin.val().trim();
-
+  let password = passwordLogin.val().trim();
 
   let users = JSON.parse(localStorage.getItem("users")) || [];
 
-  let user = users.find(user => user.email === email && user.password === password);
-}
-if (user) {
-  console.log("✅ Inicio de sesión exitoso");
-} else {
-  console.log("❌ Correo o contraseña incorrectos.");
+  let user = users.find(
+    (user) => user.email === email && user.password === password
+  );
+  if (user) {
+    console.log("✅ Inicio de sesión exitoso");
+    window.location.href = "admin.html";
+  } else {
+    console.log("❌ Correo o contraseña incorrectos.");
+  }
 }
 
 $(document).ready(function () {
   $("#btnRegister").on("click", registerUser);
+  $("#btnLogin").on("click", loginUser);
+  $("#toLogin").on("click", goLogin);
+  $("#toRegister").on("click", goRegister);
 });
