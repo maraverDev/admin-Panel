@@ -1,6 +1,7 @@
 const toLogin = $("#toLogin");
 const toRegister = $("#toRegister");
 
+
 // Register
 const registerDiv = $("#registerSection");
 const emailRegister = $("#emailRegister");
@@ -51,23 +52,55 @@ function registerUser() {
   let fails = validateInputs();
 
   if (fails > 0) {
-    console.log("❌ Hay algún problema en los datos, verifícalo.");
+    Swal.fire({
+      icon: "error",
+      title: "Oops...",
+      text: "Hay algún problema en los datos, verifícalo.",
+    });
   } else if (passwordRegister.val() !== repeatPassRegister.val()) {
-    console.log("❌ Las contraseñas no son iguales.");
+    Swal.fire({
+      icon: "warning",
+      title: "Oops...",
+      text: "Las contraseñas no son iguales.",
+    });
   } else {
     let email = emailRegister.val().trim();
     let password = passwordRegister.val().trim();
     let users = JSON.parse(localStorage.getItem("users")) || [];
 
     if (users.some((user) => user.email === email)) {
-      console.log("⚠️ Este email ya está registrado.");
+      Swal.fire({
+        icon: "warning",
+        title: "Oops...",
+        text: "Ya existe una cuenta asociada a este correo.",
+      });
       return;
     }
     users.push({ email, password });
     localStorage.setItem("users", JSON.stringify(users));
 
-    console.log("✅ Registro exitoso");
-    window.location.href = "admin.html";
+    let timerInterval;
+    Swal.fire({
+      title: "Registro en proceso",
+      html: "Cargando registros, quedan <b></b> milisegundos.",
+      timer: 500,
+      timerProgressBar: true,
+      didOpen: () => {
+        Swal.showLoading();
+        const timer = Swal.getPopup().querySelector("b");
+        timerInterval = setInterval(() => {
+          timer.textContent = `${Swal.getTimerLeft()}`;
+        }, 100);
+      },
+      willClose: () => {
+        clearInterval(timerInterval);
+      },
+    }).then((result) => {
+      /* Read more about handling dismissals below */
+      if (result.dismiss === Swal.DismissReason.timer) {
+        window.location.href = "admin.html";
+      }
+    });
   }
 }
 // Login
@@ -90,7 +123,20 @@ function loginUser() {
     window.location.href = "admin.html";
     console.log(users);
   } else {
-    console.log("❌ Correo o contraseña incorrectos.");
+    Swal.fire({
+      title: "No existe una cuenta con esa información",
+      text: "Revisa los datos o regístrate.",
+      cancelButtonText: "Atrás",
+      icon: "error",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "green",
+      confirmButtonText: "Registrarme",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        goRegister();
+      }
+    });
   }
 }
 
@@ -106,7 +152,7 @@ let userData = users.map((user) => [user.email, user.password]);
 
 new DataTable("#table", {
   columns: [{ title: "Email" }, { title: "Contraseña" }],
-  data: userData, 
+  data: userData,
   language: {
     processing: "Procesando...",
     search: "Buscar:",

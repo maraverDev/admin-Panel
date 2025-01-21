@@ -7,23 +7,29 @@
     <link href="./output.css" rel="stylesheet" />
     <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdn.datatables.net/2.2.1/css/dataTables.tailwindcss.css">
+    <link
+      rel="stylesheet"
+      href="https://cdn.datatables.net/2.2.1/css/dataTables.tailwindcss.css"
+    />
   </head>
   <body class="text-gray-800 bg-gray-50">
     <header
       class="flex items-center justify-between p-6 text-white shadow-lg bg-gradient-to-r from-blue-500 to-teal-500"
     >
       <span class="text-3xl font-semibold">Admin Panel</span>
-      <button
+      <a href="index.html">
+        <button
         class="p-2 text-xl font-semibold text-white transition duration-300 bg-red-500 border rounded-md hover:bg-red-600"
       >
         Cerrar Sesión
       </button>
+      </a>
+
     </header>
 
-    <main class="min-h-screen p-8 bg-slate-100">
+    <main class="min-h-screen p-8">
       <div class="container mx-auto">
-        <div class="overflow-hidden bg-white rounded-lg shadow-lg">
+        <div class="overflow-hidden bg-white rounded-xl shadow-xl p-4">
           <table
             id="table"
             class="w-full border-collapse table-auto display"
