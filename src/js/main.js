@@ -88,14 +88,30 @@ function loginUser() {
   if (user) {
     console.log("✅ Inicio de sesión exitoso");
     window.location.href = "admin.html";
+    console.log(users)
   } else {
     console.log("❌ Correo o contraseña incorrectos.");
   }
 }
+
 
 $(document).ready(function () {
   $("#btnRegister").on("click", registerUser);
   $("#btnLogin").on("click", loginUser);
   $("#toLogin").on("click", goLogin);
   $("#toRegister").on("click", goRegister);
+
+});
+
+let users = JSON.parse(localStorage.getItem('users')) || [];
+
+// Transform the users array into an array of arrays
+let userData = users.map(user => [user.email, user.password]);
+
+new DataTable('#table', {
+  columns: [
+      { title: 'Email' },
+      { title: 'Contraseña' }
+  ],
+  data: userData // Pass the transformed data here
 });

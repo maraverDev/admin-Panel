@@ -6,10 +6,12 @@
     <link href="./output.css" rel="stylesheet" />
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.datatables.net/2.2.1/js/dataTables.js"></script>
+
     <script src="js/main.js" defer></script>
   </head>
   <body>
-    <main class="flex justify-center items-center h-screen">
+    <main class="flex items-center justify-center h-screen">
       <div
         id="loginSection"
         class="max-w-md relative flex flex-col p-4 rounded-md text-black bg-[#e8e8e8] w-1/3 hidden"
@@ -21,7 +23,7 @@
           <span>Accede a tu cuenta</span>
         </div>
         <form class="flex flex-col gap-3">
-          <div class="block relative">
+          <div class="relative block">
             <label
               for="emailLogin"
               class="block text-gray-600 cursor-text text-sm leading-[140%] font-normal mb-2"
@@ -33,7 +35,7 @@
               class="rounded border border-gray-200 text-sm w-full font-normal leading-[18px] text-black tracking-[0px] appearance-none block h-11 m-0 p-[11px] focus:ring-2 ring-offset-2 ring-gray-900 outline-0"
             />
           </div>
-          <div class="block relative">
+          <div class="relative block">
             <label
               for="passwordLogin"
               class="block text-gray-600 cursor-text text-sm leading-[140%] font-normal mb-2"
@@ -74,7 +76,7 @@
           <span>Introduce los siguientes datos</span>
         </div>
         <form class="flex flex-col gap-3">
-          <div class="block relative">
+          <div class="relative block">
             <label
               for="emailRegister"
               class="block text-gray-600 cursor-text text-sm leading-[140%] font-normal mb-2"
@@ -86,7 +88,7 @@
               class="rounded border border-gray-200 text-sm w-full font-normal leading-[18px] text-black tracking-[0px] appearance-none block h-11 m-0 p-[11px] focus:ring-2 ring-offset-2 ring-gray-900 outline-0"
             />
           </div>
-          <div class="block relative">
+          <div class="relative block">
             <label
               for="password"
               class="block text-gray-600 cursor-text text-sm leading-[140%] font-normal mb-2"
@@ -99,7 +101,7 @@
             />
           </div>
 
-          <div class="block relative">
+          <div class="relative block">
             <label
               for="repeatPassword"
               class="block text-gray-600 cursor-text text-sm leading-[140%] font-normal mb-2"
@@ -127,5 +129,7 @@
         </div>
       </div>
     </main>
+
+    
   </body>
 </html>
