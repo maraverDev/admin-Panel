@@ -88,30 +88,44 @@ function loginUser() {
   if (user) {
     console.log("✅ Inicio de sesión exitoso");
     window.location.href = "admin.html";
-    console.log(users)
+    console.log(users);
   } else {
     console.log("❌ Correo o contraseña incorrectos.");
   }
 }
-
 
 $(document).ready(function () {
   $("#btnRegister").on("click", registerUser);
   $("#btnLogin").on("click", loginUser);
   $("#toLogin").on("click", goLogin);
   $("#toRegister").on("click", goRegister);
-
 });
 
-let users = JSON.parse(localStorage.getItem('users')) || [];
+let users = JSON.parse(localStorage.getItem("users")) || [];
+let userData = users.map((user) => [user.email, user.password]);
 
-// Transform the users array into an array of arrays
-let userData = users.map(user => [user.email, user.password]);
-
-new DataTable('#table', {
-  columns: [
-      { title: 'Email' },
-      { title: 'Contraseña' }
-  ],
-  data: userData // Pass the transformed data here
+new DataTable("#table", {
+  columns: [{ title: "Email" }, { title: "Contraseña" }],
+  data: userData, 
+  language: {
+    processing: "Procesando...",
+    search: "Buscar:",
+    lengthMenu: "Mostrar _MENU_ registros",
+    info: "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
+    infoEmpty: "Mostrando registros del 0 al 0 de un total de 0 registros",
+    infoFiltered: "(filtrado de un total de _MAX_ registros)",
+    loadingRecords: "Cargando...",
+    zeroRecords: "No se encontraron resultados",
+    emptyTable: "Ningún dato disponible en esta tabla",
+    paginate: {
+      first: "Primero",
+      previous: "Anterior",
+      next: "Siguiente",
+      last: "Último",
+    },
+    aria: {
+      sortAscending: ": Activar para ordenar la columna de manera ascendente",
+      sortDescending: ": Activar para ordenar la columna de manera descendente",
+    },
+  },
 });
