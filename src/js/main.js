@@ -23,7 +23,7 @@ function goRegister() {
     loginDiv.addClass("hidden");
   }
 }
-
+let errores = '';
 function validateInputs() {
   const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   const passwordPattern = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$/;
@@ -37,14 +37,16 @@ function validateInputs() {
 
   if (!emailPattern.test(emailValue)) {
     // console.log("❌ Patrón de email inválido");
+    errores+= 'El email no es válido. ';
     fails++;
   }
 
   if (!passwordPattern.test(passwordValue)) {
     // console.log("❌ Patrón de contraseña inválido");
+    errores = errores +  'La contraseña debe contener minimo 6 caracteres, numeros y letras.' 
+
     fails++;
   }
-
   return fails;
 }
 
@@ -55,8 +57,9 @@ function registerUser() {
     Swal.fire({
       icon: "error",
       title: "Oops...",
-      text: "Hay algún problema en los datos, verifícalo.",
+      text: errores,
     });
+    errores = '';
   } else if (passwordRegister.val() !== repeatPassRegister.val()) {
     Swal.fire({
       icon: "warning",
