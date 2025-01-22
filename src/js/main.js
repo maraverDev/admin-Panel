@@ -32,16 +32,16 @@ function validateInputs() {
   let emailValue = emailRegister.val();
   let passwordValue = passwordRegister.val();
 
-  console.log("Email ingresado:", emailValue);
-  console.log("Contraseña ingresada:", passwordValue);
+  // console.log("Email ingresado:", emailValue);
+  // console.log("Contraseña ingresada:", passwordValue);
 
   if (!emailPattern.test(emailValue)) {
-    console.log("❌ Patrón de email inválido");
+    // console.log("❌ Patrón de email inválido");
     fails++;
   }
 
   if (!passwordPattern.test(passwordValue)) {
-    console.log("❌ Patrón de contraseña inválido");
+    // console.log("❌ Patrón de contraseña inválido");
     fails++;
   }
 
@@ -119,9 +119,7 @@ function loginUser() {
     (user) => user.email === email && user.password === password
   );
   if (user) {
-    console.log("✅ Inicio de sesión exitoso");
     window.location.href = "admin.html";
-    console.log(users);
   } else {
     Swal.fire({
       title: "No existe una cuenta con esa información",
